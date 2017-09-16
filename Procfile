@@ -1,1 +1,2 @@
-web: python scraper.py
+web: gunicorn scraper:app --log-file=-
+
