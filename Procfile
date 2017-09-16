@@ -1,1 +1,1 @@
-web: gunicorn app:scraper.py
+web: python scraper.py
