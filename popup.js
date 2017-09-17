@@ -96,14 +96,30 @@ chrome.storage.sync.get("lastUpdate", function(data){
 });
 
 function displayFeed(feed){
-    chrome.extension.getBackgroundPage().console.log("DISPLAYING!");
-    document.getElementById('container').innerHTML = Date.now()/1000;
-    
-    var i;
-    chrome.extension.getBackgroundPage().console.log(feed);
-    for(i=0; i<feed.length; i++){
-        chrome.extension.getBackgroundPage().console.log(feed[i]);
-        chrome.extension.getBackgroundPage().console.log(feed[i].title);
-    }       
+    if(feed != undefined && feed != null){
+        chrome.extension.getBackgroundPage().console.log("DISPLAYING!");
+        document.getElementById('container').innerHTML = "";
+        
+        var i;
+        chrome.extension.getBackgroundPage().console.log(feed);
+        for(i=0; i<feed.length; i++){
+            chrome.extension.getBackgroundPage().console.log(feed[i]);
+            chrome.extension.getBackgroundPage().console.log(feed[i].title);
+            document.getElementById('container').innerHTML += "<a class='articleLink' target=\"_blank\" style='display:block;' href='" + feed[i].url + "'><div class='story' id='article" +(i.toString()) +"' >" +
+            "<h3 class='articleTitle'>" + feed[i].title + "</h3>" +
+            "<span class='articleInfo'> Posted: "+ new Date(feed[i].time).toLocaleString() + "</span>"+
+            "<span class='articleInfo' style='float: right'>"+ feed[i].source +"</span>"+
+            "</div></a>"
+            console.log(feed[i].url);
+            document.getElementById("article"+(i.toString())).addEventListener('click', function(){
+                console.log("CLICK");
+            });
+            if(i != feed.length-1){
+                document.getElementById('container').innerHTML += "<hr>"
+            }
+        }   
+        
+    }
 }
 }
+

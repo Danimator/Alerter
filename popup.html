@@ -2,30 +2,133 @@
 <html>
     <head>
         <link href="https://fonts.googleapis.com/css?family=Roboto:500" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Lora:700" rel="stylesheet">
+        <script src="jquery-3.2.1.min.js"></script>
         <title>News Alerter</title>
         <style type='text/css'>
-            body{
-                margin: 10px;
-                white-space: nowrap;
-                font-family: 'Roboto', sans-serif;
+            html{
                 width: 400px;
+                overflow-y: scroll;
+                word-wrap:break-word;
+            }
+            body{
+                font-family: 'Lora', serif;
+                margin: 0px;
+            }
+            h2{
+                font-family: 'Roboto', sans-serif;
+                margin: 0px;
+            }
+            h3{
+                -webkit-transition-duration: 0.2s;
+                transition-duration: 0.2s;
+                margin-top: 0px;
+            }
+            .articleTitle{
+                margin-top: 0px;
+            }
+            .articleInfo{
+                margin-bottom:0px;
+            }
+            span{
+                font-family: 'Roboto', sans-serif;
+                color: #FF7732;
+                -webkit-transition-duration: 0.3s;
+                transition-duration: 0.3s;
+            }
+            hr{
+                margin: 0px;
+                height: 7px;
+                border: none;
+                background-color: rgb(230,230,230);
+            }
+            #container{
+                //align-items: center;
+                display: block;
+                justify-content: space-between;
+                text-overflow: wrap;
+
+                word-wrap: break-word;
+            }
+            .story{
+                //word-wrap: break-word;
+                //overflow-wrap: break-word;
+                width: 360px;
+                position: relative;
+                display: block;
+                padding-left: 20px;
+                padding-right: 20px;
+                padding-top: 15px;
+                padding-bottom: 15px;
+            }
+            #wrapper{
+                overflow-x: hidden;
+                margin-top: 22px;
             }
 
-            #container{
-                align-items: center;
-                display: flex;
-                justify-content: space-between;
-                padding-left: 9px;
-                padding-right:9px;
+            .story{
+                -webkit-transition-duration: 0.4s;
+                transition-duration: 0.4s;
             }
+
+            .articleLink{
+                text-decoration: inherit;
+                 color: inherit;
+                -webkit-transition-duration: 0.4s;
+                transition-duration: 0.4s;
+            }
+            .articleLink:visited{
+                text-decoration: inherit;
+                color: inherit;
+            }
+            .story:hover{
+                cursor: pointer;   
+                background-color: #FF4D32;
+                box-shadow: 2px 2px 6px rgba(0,0,0,0.5); 
+            }
+
+            .articleLink:hover > .story > h3{
+                color: white;
+            }
+
+            .story:hover > span{
+                color: white;
+            }
+
+            /* Thanks to https://css-tricks.com/examples/WebKitScrollbars/ for the template for this -->|*/
+            ::-webkit-scrollbar {
+                width: 6px;
+            }
+             
+            /* Track */
+            ::-webkit-scrollbar-track {
+                -webkit-box-shadow: inset 0 0 3px rgba(0,0,0,0.3); 
+                -webkit-border-radius: 5px;
+                border-radius: 5px;
+            }
+             
+            /* Handle */
+            ::-webkit-scrollbar-thumb {
+                -webkit-border-radius: 5px;
+                border-radius: 5px;
+                background: rgba(50,50,50,0.8); 
+                -webkit-box-shadow: inset 0 0 3px rgba(0,0,0,0.5); 
+            }
+            ::-webkit-scrollbar-thumb:window-inactive {
+                background: rgba(50,50,50,0.4); 
+            }
+            /* ---------------------------------------------------------------------------------------->|*/
        </style>
 
        <script src="popup.js"></script>
     </head>
     <body>
-        <h1>Alerter</h1>
-        <div id='container'>
-        
+        <div id='wrapper'>
+            <h2 style='padding-left: 20px;'>ALERTER</h2>
+            <hr style='height: 1px; background-color: rgb(190,190,190); margin-top: 13px;'>
+            <div id='container'>
+            
+            </div>
         </div>
     </body>
 </html>
