@@ -1,6 +1,6 @@
 import requests
 from flask import Flask, request, jsonify
-from flask.ext.cors import CORS, cross_origin
+from flask_cors import CORS, cross_origin
 from bs4 import BeautifulSoup
 
 import site_parsing
