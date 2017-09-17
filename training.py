@@ -62,7 +62,7 @@ def get_score(sentence):
     if score_alert > score_not:
         return 3.5
     else:
-        return -1
+        return -2
 
 if __name__ == "__main__":
     train()
