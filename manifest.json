@@ -4,13 +4,16 @@
     "name": "News Alerter",
     "description": "Shows you the latest important news from various news sources",
     "version": "0.1",
-
+    "background": {
+       "scripts": ["popup.js"]
+    },
     "browser_action": {
         "default_icon": "icon.png",
         "default_popup": "popup.html"
     },
     "permissions": [
         "activeTab",
-        "storage"
+        "storage",
+        "<all_urls>"
     ]
 }

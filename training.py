@@ -35,6 +35,7 @@ def train():
         pickle.dump(likelihood_table, f, pickle.HIGHEST_PROTOCOL)
     with open('trained_model/data_count.pk1', 'wb') as f:
         pickle.dump(data_count, f, pickle.HIGHEST_PROTOCOL)
+    print("Finished training!")
 
 def get_score(sentence):
     global data_count
@@ -62,3 +63,6 @@ def get_score(sentence):
         return 3.5
     else:
         return -2
+
+if __name__ == "__main__":
+    train()

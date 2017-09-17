@@ -1,13 +1,17 @@
 import requests
 from flask import Flask, request, jsonify
+from flask.ext.cors import CORS, cross_origin
 from bs4 import BeautifulSoup
 
 import site_parsing
 
 app = Flask(__name__)
+cors = CORS(app)
+app.config['CORS_HEADERS'] = 'Content-Type'
 
 
-@app.route('/feed', methods=['GET', 'POST'])
+@app.route('/feed', methods=['POST'])
+@cross_origin()
 def get_feed():
     ''' Accepts a JSON in the format:
         {
@@ -40,7 +44,7 @@ def get_feed():
 
     # Initialize to-return JSON
     results = {"feed": []}
-
+    print results
     # Begin scraping
     for site in req_body["sites"]:
         sub_feed = site_parsing.get_site_feed(site, req_body["keywords"], req_body["urgency"])
