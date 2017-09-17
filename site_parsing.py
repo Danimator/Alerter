@@ -118,7 +118,7 @@ def get_site_feed(site, keywords, urgency):
     htmlSoup = BeautifulSoup(response.content, "html.parser")
 
     if site == "reddit":
-        stories = htmlSoup.find_all("div", "thing", limit=4)
+        stories = htmlSoup.find_all("div", "thing")
         for story in stories:
             story_title =  story.find("a", "title").get_text().encode("utf-8")
             story_url = urljoin(url, story.find("a", "title").get('href')) #fix relative links
@@ -141,7 +141,7 @@ def get_site_feed(site, keywords, urgency):
                     "source": sources[site]
                 })
     elif site == "cbc":
-        stories = htmlSoup.find_all("a", "pinnableHeadline", limit=4)
+        stories = htmlSoup.find_all("a", "pinnableHeadline")
         for story in stories:
             story_title = story.get_text()
             story_url =  urljoin(url, story.get('href'))
@@ -164,7 +164,7 @@ def get_site_feed(site, keywords, urgency):
                     "source": sources[site]
                 })
     elif site == "globe-and-mail" or site == "globe-and-mail-canada":
-        stories = htmlSoup.find_all("div", "o-card", limit=4)
+        stories = htmlSoup.find_all("div", "o-card")
         for story in stories:
             story_title =  story.find("span", "o-card__content-text").get_text().encode("utf-8")
             story_url = "https://beta.theglobeandmail.com" + story.find("a").get('href') #fix relative links
