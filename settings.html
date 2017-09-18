@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+    <head>
+        <link href="https://fonts.googleapis.com/css?family=Roboto:500" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Lora:700" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <title>Alerter Settings</title>
+        <script type='text/javascript'>
+            function loadOptions(){
+                var include = localStorage["include"];
+                if(include == undefined){
+                    localStorage["urgency"] = 1;
+                    include = 1;
+                }
+                var keywords = "";
+            }
+            function setInclExcl(bl){
+                localStorage["include"] (bl? 1 : 0);
+                console.log(localStorage["include"], "LOLOLOL");
+            }
+        </script>
+    </head>
+    <body>
+    <input type="radio" name="inclexcl" value="include" checked="checked" onclick="setInclExcl(true);"> Include these keywords
+    <input type="radio" name="inclexcl" value="exclude" onclick="setInclExcl(false);"> Exclude these keywords
+    </body>
+</html>

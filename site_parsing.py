@@ -132,6 +132,7 @@ def get_site_feed(site, keywords, urgency):
             print story_url
 
             story_score = getTitleScore(story_title)
+            story_score += 0 if passesKeywordCheck(story_title, keywords, urgency) else -100
             if story_score >= alert_threshold:
                 results.append({
                     "title": story_title,
@@ -154,7 +155,7 @@ def get_site_feed(site, keywords, urgency):
             print story_datetime
 
             story_score = getTitleScore(story_title)
-
+            story_score += 0 if passesKeywordCheck(story_title, keywords, urgency) else -100
             if story_score >= alert_threshold:
                 results.append({
                     "title": story_title,
@@ -178,6 +179,7 @@ def get_site_feed(site, keywords, urgency):
                 print story_url 
 
                 story_score = getTitleScore(story_title)
+                story_score += 0 if passesKeywordCheck(story_title, keywords, urgency) else -100
                 if story_score >= alert_threshold:
                     results.append({
                         "title": story_title,
@@ -204,3 +206,18 @@ def get_site_feed(site, keywords, urgency):
             print story_datetime
             print story_title
             print story_url'''
+
+def passesKeywordCheck(title, keywords, urgency):
+    if keywords == []:
+        return True
+    stripped_title = stripped_title = "".join([c if (c.isalnum() or c==" " or c=="-") else "" for c in title]).lower().split()
+    if urgency == 1:
+        for word in stripped_title:
+            if word in keywords:
+                return True
+        return False
+    else:
+        for word in stripped_title:
+            if word in keywords:
+                return False
+        return True

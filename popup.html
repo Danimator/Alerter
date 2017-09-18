@@ -3,6 +3,7 @@
     <head>
         <link href="https://fonts.googleapis.com/css?family=Roboto:500" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Lora:700" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <script src="jquery-3.2.1.min.js"></script>
         <title>News Alerter</title>
         <style type='text/css'>
@@ -95,6 +96,15 @@
                 color: white;
             }
 
+            .fa-cog{
+                -webkit-transition-duration: 0.4s;
+                transition-duration: 0.4s;
+            }
+            .fa-cog:hover{
+                color: #FF4D32;
+                cursor: pointer;
+            }
+
             /* Thanks to https://css-tricks.com/examples/WebKitScrollbars/ for the template for this -->|*/
             ::-webkit-scrollbar {
                 width: 6px;
@@ -124,7 +134,8 @@
     </head>
     <body>
         <div id='wrapper'>
-            <h2 style='padding-left: 20px;'>ALERTER</h2>
+        <!--<a href='settings.html' target='_blank' style='text-decoration: none; color: rgb(64,64,64);'><i class="fa fa-cog fa-4" id='settings'  style='font-size: 20px; float: right; margin-right: 20px;' aria-hidden='true'></i></a>-->
+            <h2 style='padding-left: 20px; cursor: pointer;'>ALERTER</h2> 
             <hr style='height: 1px; background-color: rgb(190,190,190); margin-top: 13px;'>
             <div id='container'>
             
