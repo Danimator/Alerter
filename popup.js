@@ -14,7 +14,7 @@ chrome.storage.sync.get("lastUpdate", function(data){
             if(lastUpdateTime <= Date.now()/1000 - 3*60){
                 chrome.extension.getBackgroundPage().console.log("entered");
                 var xhr = new XMLHttpRequest();
-                var url =  "http://localhost:5000/feed"; //"https://news-alert-scraper.herokuapp.com/feed";
+                var url =  "https://news-alert-scraper.herokuapp.com/feed";
                 var params = JSON.stringify({'sites': ['reddit', 'cbc', 'globe-and-mail-canada'], 'keywords': [], 'urgency': 0});
 
                 xhr.open("POST", url, true);
@@ -58,7 +58,7 @@ chrome.storage.sync.get("lastUpdate", function(data){
         if(lastUpdateTime <= Date.now()/1000 - 3*60){
             chrome.extension.getBackgroundPage().console.log("entered2");
             var xhr = new XMLHttpRequest();
-            var url = "http://localhost:5000/feed"; //"https://news-alert-scraper.herokuapp.com/feed";
+            var url = "https://news-alert-scraper.herokuapp.com/feed";
             var params = JSON.stringify({'sites': ['reddit', 'cbc', 'globe-and-mail-canada'], 'keywords': [], 'urgency': 0});
 
             xhr.open("POST", url, true);
